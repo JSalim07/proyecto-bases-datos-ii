@@ -122,5 +122,4 @@ npm run dev:graphql     # Iniciar GraphQL en desarrollo
 ## 👤 Autor
 
 **Justin**
-Bases de Datos II - Actividad 2
-Sistema de Gestión de Poesía con REST API y GraphQL
+Bases de Datos II - Sistema de Gestión de Poesía con REST API y GraphQL
