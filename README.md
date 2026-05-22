@@ -4,20 +4,15 @@
 
 ```
 Proyecto/
-├── docs/                           # Documentación
-│   ├── ACTIVIDAD_2_REST_API.md    # Documentación del Rest-API
-│   ├── DIAGRAMA_BASE_DATOS.md     # Diagramas de la BD
-│   └── INSTRUCCIONES_DATAGRIP.md  # Guía de DataGrip
 ├── sql/                            # Scripts SQL
-│   ├── create_tables_english.sql   # Creación de tablas
-│   ├── insert_sample_data.sql      # Datos de prueba
-│   └── queries_and_procedures.sql  # Consultas y procedimientos
+│   ├── stored_procedures.sql       # Procedimientos almacenados
+│   └── sample_data.sql             # Datos de prueba
 ├── src/                            # Código fuente
-│   ├── controllers/                # Controladores del Rest-API
+│   ├── controllers/                # Controladores REST
 │   ├── models/                     # Modelos de datos
 │   ├── routes/                     # Rutas del API
 │   ├── database/                   # Configuración de BD
-│   ├── graphql/                    # GraphQL (legacy)
+│   ├── graphql/                    # GraphQL/Apollo Server
 │   ├── server.js                   # Servidor GraphQL
 │   └── server-rest.js              # Servidor Rest-API
 ├── .env                            # Variables de entorno
@@ -47,10 +42,14 @@ npm install
 docker start mysql_tercerparcial
 ```
 
-### 3. Ejecutar scripts SQL
-- Abrir DataGrip
-- Conectar a `localhost:3308`
-- Ejecutar: `sql/create_tables_english.sql`
+### 3. Ejecutar scripts SQL (opcional)
+```bash
+# Crear procedimientos almacenados
+docker exec -i mysql_tercerparcial mysql -uroot -pP4rc1al_3DB poesia_db < sql/stored_procedures.sql
+
+# Insertar datos de prueba
+docker exec -i mysql_tercerparcial mysql -uroot -pP4rc1al_3DB poesia_db < sql/sample_data.sql
+```
 
 ### 4. Iniciar el servidor Rest-API
 ```bash
@@ -58,14 +57,6 @@ npm run start:rest
 ```
 
 El servidor estará disponible en: **http://localhost:3000**
-
----
-
-## 📚 Documentación
-
-- **Rest-API:** [docs/ACTIVIDAD_2_REST_API.md](docs/ACTIVIDAD_2_REST_API.md)
-- **Base de Datos:** [docs/DIAGRAMA_BASE_DATOS.md](docs/DIAGRAMA_BASE_DATOS.md)
-- **DataGrip:** [docs/INSTRUCCIONES_DATAGRIP.md](docs/INSTRUCCIONES_DATAGRIP.md)
 
 ---
 
@@ -87,8 +78,8 @@ El servidor estará disponible en: **http://localhost:3000**
 npm run start:rest      # Iniciar Rest-API en producción
 npm run dev:rest        # Iniciar Rest-API en desarrollo
 
-# GraphQL (legacy)
-npm run start:graphql   # Iniciar servidor GraphQL
+# GraphQL
+npm run start:graphql   # Iniciar servidor GraphQL/Apollo
 npm run dev:graphql     # Iniciar GraphQL en desarrollo
 ```
 
@@ -111,15 +102,18 @@ npm run dev:graphql     # Iniciar GraphQL en desarrollo
 ## 🛠️ Tecnologías
 
 - Node.js v24.15.0
-- Express.js v4.18.2
-- MySQL 9.6.0
-- MySQL2 Driver v3.22.3
-- Docker
+- Express.js v4.18.2 - Framework REST API
+- Apollo Server v3.13.0 - GraphQL server
+- MySQL 9.6.0 - Base de datos
+- MySQL2 v3.22.3 - Driver Node.js
+- Knex.js v3.2.10 - Query builder
+- dotenv v17.4.2 - Variables de entorno
+- Docker - Contenedor MySQL
 
 ---
 
 ## 👤 Autor
 
 **Justin**
-Bases de Datos II
-Universidad La Salle
+Bases de Datos II - Actividad 2
+Sistema de Gestión de Poesía con REST API y GraphQL
