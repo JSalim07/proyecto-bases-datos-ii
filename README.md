@@ -37,21 +37,28 @@ Proyecto/
 npm install
 ```
 
-### 2. Iniciar la base de datos (Docker)
+### 2. Configurar variables de entorno
+Crear archivo `.env` basado en `.env.example`:
+```bash
+cp .env.example .env
+```
+Editar `.env` con tus credenciales de MySQL.
+
+### 3. Iniciar la base de datos (Docker)
 ```bash
 docker start mysql_tercerparcial
 ```
 
-### 3. Ejecutar scripts SQL (opcional)
+### 4. Ejecutar scripts SQL (opcional)
 ```bash
 # Crear procedimientos almacenados
-docker exec -i mysql_tercerparcial mysql -uroot -pP4rc1al_3DB poesia_db < sql/stored_procedures.sql
+docker exec -i mysql_tercerparcial mysql -uroot -p<TU_PASSWORD> poesia_db < sql/stored_procedures.sql
 
 # Insertar datos de prueba
-docker exec -i mysql_tercerparcial mysql -uroot -pP4rc1al_3DB poesia_db < sql/sample_data.sql
+docker exec -i mysql_tercerparcial mysql -uroot -p<TU_PASSWORD> poesia_db < sql/sample_data.sql
 ```
 
-### 4. Iniciar el servidor Rest-API
+### 5. Iniciar el servidor Rest-API
 ```bash
 npm run start:rest
 ```
@@ -67,7 +74,7 @@ El servidor estará disponible en: **http://localhost:3000**
 - Puerto: `3308:3306`
 - Base de datos: `poesia_db`
 - Usuario: `root`
-- Contraseña: `P4rc1al_3DB`
+- Contraseña: Ver archivo `.env` (no incluido en el repositorio)
 
 ---
 
