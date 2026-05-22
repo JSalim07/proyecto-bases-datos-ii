@@ -1,0 +1,28 @@
+{
+  "name": "proyecto-bases-datos-ii",
+  "version": "1.0.0",
+  "description": "Proyecto de Bases de Datos II - Sistema de Poesía con GraphQL y Rest-API",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "start:rest": "node src/server-rest.js",
+    "start:graphql": "node src/server.js",
+    "dev:rest": "nodemon src/server-rest.js",
+    "dev:graphql": "nodemon src/server.js"
+  },
+  "keywords": ["graphql", "rest-api", "mysql", "poetry", "database"],
+  "author": "Justin",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^3.13.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^4.18.2",
+    "knex": "^3.2.10",
+    "mysql2": "^3.22.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
