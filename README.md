@@ -6,6 +6,7 @@
 Proyecto/
 ├── sql/                            # Scripts SQL
 │   ├── stored_procedures.sql       # Procedimientos almacenados
+│   ├── create_views.sql            # Vistas (Views)
 │   └── sample_data.sql             # Datos de prueba
 ├── src/                            # Código fuente
 │   ├── controllers/                # Controladores REST
@@ -53,6 +54,9 @@ docker start mysql_tercerparcial
 ```bash
 # Crear procedimientos almacenados
 docker exec -i mysql_tercerparcial mysql -uroot -p<TU_PASSWORD> poesia_db < sql/stored_procedures.sql
+
+# Crear vistas
+docker exec -i mysql_tercerparcial mysql -uroot -p<TU_PASSWORD> poesia_db < sql/create_views.sql
 
 # Insertar datos de prueba
 docker exec -i mysql_tercerparcial mysql -uroot -p<TU_PASSWORD> poesia_db < sql/sample_data.sql
